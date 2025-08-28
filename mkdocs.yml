@@ -1,0 +1,37 @@
+site_name: ASTRA Documentation
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+plugins:
+  - search
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+nav:
+  - Introduction: index.md
+  - Reference Architecture:
+      - 1. Purpose, scope, positioning: astra/reference/01-purpose-scope-positioning.md
+      - 2. Current state assessment: astra/reference/02-current-state.md
+      - 5. Architecture overview: astra/reference/05-architecture-overview.md
+      - 8. Identity, trust, attestation: astra/reference/08-identity-trust-attestation.md
+      - 9. Policy and governance: astra/reference/09-policy-governance.md
+      - 10. Data lineage & causal auditing: astra/reference/10-lineage-causal.md
+      - 11. Threat model & controls: astra/reference/11-threat-controls.md
+      - 13. Deployment & ops: astra/reference/13-deployment-ops.md
+      - 14. Interop & standards: astra/reference/14-interop-standards.md
+  - Implementation Guide:
+      - 15. Implementation patterns: astra/guide/15-implementation-patterns.md
+      - 15d. Anti-patterns: astra/guide/15d-anti-patterns.md
+      - 16. Validation & benchmarks: astra/guide/16-validation.md
+      - 17. Controls catalog: astra/guide/17-controls-catalog.md
+      - 18a. Pilot-to-production: astra/guide/18a-pilot-to-production.md
+      - 18b. Foundation-to-Scale path: astra/guide/18b-foundation-to-scale.md
+  - FAQs: astra/faq.md
+site_url: https://<user-or-org>.github.io/astra/
+repo_url: https://github.com/<user-or-org>/astra
+edit_uri: blob/main/docs/

@@ -32,6 +32,5 @@ nav:
       - 18a. Pilot-to-production: astra/guide/18a-pilot-to-production.md
       - 18b. Foundation-to-Scale path: astra/guide/18b-foundation-to-scale.md
   - FAQs: astra/faq.md
-site_url: https://<user-or-org>.github.io/astra/
-repo_url: https://github.com/<user-or-org>/astra
-edit_uri: blob/main/docs/
+site_url: https://astra.unbolt.ai/
+repo_url: https://github.com/unboltai/astra

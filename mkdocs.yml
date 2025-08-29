@@ -15,8 +15,8 @@ plugins:
 nav:
   - Introduction: index.md
   - Reference Architecture:
-      - 1. Purpose, scope, positioning: astra/reference/01-purpose-scope-positioning.md
-      - 2. Current state assessment: astra/reference/02-current-state.md
+      - 1. Purpose, scope, positioning: astra/reference/01-purpose-scope-and-positioning.md
+      - 2. Current state assessment: 02-current-state-assessment-background-and-motivation.md
       - 5. Architecture overview: astra/reference/05-architecture-overview.md
       - 8. Identity, trust, attestation: astra/reference/08-identity-trust-attestation.md
       - 9. Policy and governance: astra/reference/09-policy-governance.md
@@ -34,3 +34,17 @@ nav:
   - FAQs: astra/faq.md
 site_url: https://astra.unbolt.ai/
 repo_url: https://github.com/unboltai/astra
+site_name: Agentic Security and Trust Reference Architecture - ASTRA
+theme:
+  theme: 
+    palatte: 
+      - scheme: slate
+  name: material
+  logo: assets/images/unbolt_logo_white_transparent_bg.png
+  favicon: assets/images/favicon.png
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+extra_css:
+  - styles/brand.css

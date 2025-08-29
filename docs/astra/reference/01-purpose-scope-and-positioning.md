@@ -13,17 +13,26 @@ ASTRA sits as a control and assurance layer that is framework‑agnostic and sta
 - Support incremental adoption: organizations can begin with observability and policy evaluation, and progressively add trust‑aware orchestration, collaboration controls, and compliance evidence over time.
  - Future‑proofing: designed to scale from 1 agent to 100; the same control points, decision model, and evidence structures apply as you grow.
 
-#### 1.5 How to use this document
-- **Executives (CIO/CISO):** Read Sections 1–2 for intent and context, then 18 (Adoption & Maturity) and 19 (GRC Mapping) for governance alignment. Optional: skim 8 (Identity, Trust, Attestation) for risk posture.
-- **Architects:** Focus on Sections 3–5 (definitions, principles, architecture overview), then 11 (Threat Model) and 14 (Interoperability & Standards). See Appendix F for the detailed layered model and control points.
-- **Implementers/Operators:** Use Sections 13 (Deployment & Ops), 15 (Implementation Patterns incl. 15d Anti‑Patterns), 16 (Validation Methodology), 17 (Controls Catalog), and 18a (Pilot‑to‑Production Checklist) for practical rollout and testing.
+#### 1.5 How to use this document (Choose your path)
+- **Understand concepts (Reference Architecture)**
+  - Start: Section 1 → 2
+  - Next: Section 5 (Architecture overview), 8–11
+  - Standards & interop: Section 14
+  - Deep dive details: Appendix F
+- **Build and operate (Implementation Guide)**
+  - Start: Section 15 (Implementation patterns)
+  - Then: 18a (Pilot‑to‑Production), 18b (Foundation‑to‑Scale), 16 (Validation), 17 (Controls)
+- **Leaders (CIO/CISO, Risk & Compliance)**
+  - Start: Section 1 → 2
+  - Governance & adoption: Section 18
+  - GRC mapping: Section 19
 
-- Publication structure (for staged release):
-  - Part I — Strategic Overview (Sections 1–2, + Business Value & ROI summary, 18, 19)
-  - Part II — Architecture Design (Sections 3–5, 11, 14; Section 5 is the consolidated overview; Appendix F for details)
-  - Part III — Implementation Guide (Sections 15, 13, 16, 17)
+- Publication structure (staged release)
+  - Part I — Strategic Overview: Sections 1–2, 18, 19
+  - Part II — Architecture Design: Sections 3–5, 11, 14 (Appendix F for details)
+  - Part III — Implementation Guide: Sections 15, 13, 16, 17
 
-- Two‑document plan:
-  - **ASTRA Reference Architecture (Sections 1–14):** Comprehensive, normative specification of concepts, control points, and standards alignment.
-  - **ASTRA Implementation Guide (Sections 15–21):** Practical guidance: patterns, deployment models, validation/benchmarks, controls catalog, appendices.
+- Two‑document plan
+  - **ASTRA Reference Architecture (Sections 1–14)** — concepts, control points, standards alignment
+  - **ASTRA Implementation Guide (Sections 15–21)** — patterns, deployment, validation, controls, case studies
 

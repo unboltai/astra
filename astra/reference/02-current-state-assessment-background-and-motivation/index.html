@@ -514,6 +514,48 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#academic-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Academic foundation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Academic foundation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trust-fabric-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trust Fabric concept
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-threat-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprehensive threat modeling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zerotrust-for-agentic-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zero‑trust for agentic systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#25-business-value-and-roi" class="md-nav__link">
     <span class="md-ellipsis">
       2.5 Business value and ROI
@@ -661,53 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-layered-architecture-model-moved.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Layered Architecture Model
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../07-security-control-points-moved.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Security Control Points
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../08-identity-trust-and-attestation.md" class="md-nav__link">
+      <a href="../06-identity-trust-and-attestation/" class="md-nav__link">
         
   
   
@@ -730,12 +726,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../09-policy-and-governance.md" class="md-nav__link">
+      <a href="../07-policy-and-governance/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Policy & Governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-data-lineage-and-causal-chain-auditing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Lineage & Causal Chain Auditing
     
   </span>
   
@@ -807,30 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10-data-lineage-and-causal-chain-auditing.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Data Lineage & Causal Chain Auditing
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11-threat-model-and-controls-threatinformed.md" class="md-nav__link">
+      <a href="../09-threat-model-and-controls-threatinformed/" class="md-nav__link">
         
   
   
@@ -853,7 +849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../12-metrics-and-assurance-trismaligned.md" class="md-nav__link">
+      <a href="../10-metrics-and-assurance-trismaligned/" class="md-nav__link">
         
   
   
@@ -930,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../13-deployment-and-operational-models.md" class="md-nav__link">
+      <a href="../11-deployment-and-operational-models/" class="md-nav__link">
         
   
   
@@ -953,7 +949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../14-interoperability-and-standards.md" class="md-nav__link">
+      <a href="../12-interoperability-and-standards/" class="md-nav__link">
         
   
   
@@ -1214,26 +1210,26 @@
 
 
 <h1 id="current-state-assessment-background-and-motivation">Current state assessment (background and motivation)</h1>
-<ul>
-<li><strong>Where organizations are today</strong>: pilots and proofs‑of‑concept; limited scope and governance</li>
-<li><strong>Common security gaps</strong>: no per‑agent identities, broad service accounts, deferred policy, manual/partial audit, weak lineage</li>
-<li><strong>Why security‑first</strong>: controls are cheapest early and compound with scale; evidence is essential for compliance and incident response</li>
-<li><strong>Related work (academic anchors)</strong>: Trust Fabric, Zero‑Trust for agentic systems, threat models (ATFAA/SHIELD), TRiSM metrics (include citations list)</li>
-</ul>
+<h4 id="academic-foundation">Academic foundation</h4>
+<p>ASTRA builds upon cutting-edge research in agentic AI security and trust management. The architecture incorporates concepts from several key academic contributions:</p>
+<h5 id="trust-fabric-concept">Trust Fabric concept</h5>
+<p>Drawing from Balija et al., ASTRA implements a "Trust Fabric" approach with:
+- Decentralized agent discovery through distributed registries
+- Semantic agent cards with verifiable credentials
+- Dynamic trust layers integrating behavioral attestations with policy compliance</p>
+<h5 id="comprehensive-threat-modeling">Comprehensive threat modeling</h5>
+<p>Based on Narajala &amp; Narayan ATFAA framework, ASTRA addresses:
+- Cognitive architecture vulnerabilities
+- Temporal persistence threats
+- Trust boundary violations
+- Governance circumvention</p>
+<h5 id="zerotrust-for-agentic-systems">Zero‑trust for agentic systems</h5>
+<p>Implementing Huang et al. principles:
+- Trust‑Adaptive Runtime Environments (TARE)
+- Causal Chain Auditing
+- Dynamic identity with behavioral attestation</p>
 <h4 id="25-business-value-and-roi">2.5 Business value and ROI</h4>
-<ul>
-<li><strong>2.5a Value Framework (timeless methodology)</strong></li>
-<li>Cost avoidance categories: compliance violation prevention (regulatory fine avoidance calculation), breach cost mitigation (industry average reference methodology), operational efficiency gains (time‑to‑deployment reduction models)</li>
-<li>Value realization patterns: security debt prevention (retrofit vs. build‑first cost multipliers), audit preparation (hours saved in compliance prep and evidence collection), risk reduction (quantifiable risk reduction through policy automation)</li>
-<li><strong>2.5b Current Market Context (updated annually, clearly dated)</strong></li>
-<li>Regulatory landscape: current AI governance requirements and penalty structures</li>
-<li>Industry benchmarks: breach costs, compliance costs, and efficiency metrics (with citation methodology)</li>
-<li>Technology adoption: policy‑as‑code, observability, and automation adoption rates</li>
-<li><strong>Companion: ASTRA ROI Calculator</strong> (web‑based tool with current figures)</li>
-<li>Interactive calculator for cost avoidance, efficiency gains, and risk reduction</li>
-<li>Updated annually with latest industry data and regulatory requirements</li>
-<li>Provides organization‑specific ROI projections based on ASTRA adoption scope</li>
-</ul>
+<p>Coming soon.</p>
 
 
 
@@ -1254,7 +1250,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 29, 2025 10:44:22 UTC">August 29, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 29, 2025 11:50:13 UTC">August 29, 2025</span>
   </span>
 
     

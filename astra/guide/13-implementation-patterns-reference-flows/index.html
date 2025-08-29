@@ -589,53 +589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/06-layered-architecture-model-moved.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Layered Architecture Model
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/07-security-control-points-moved.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Security Control Points
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/08-identity-trust-and-attestation.md" class="md-nav__link">
+      <a href="../../reference/06-identity-trust-and-attestation/" class="md-nav__link">
         
   
   
@@ -658,12 +612,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/09-policy-and-governance.md" class="md-nav__link">
+      <a href="../../reference/07-policy-and-governance/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Policy & Governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/08-data-lineage-and-causal-chain-auditing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Lineage & Causal Chain Auditing
     
   </span>
   
@@ -732,30 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/10-data-lineage-and-causal-chain-auditing.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Data Lineage & Causal Chain Auditing
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/11-threat-model-and-controls-threatinformed.md" class="md-nav__link">
+      <a href="../../reference/09-threat-model-and-controls-threatinformed/" class="md-nav__link">
         
   
   
@@ -778,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/12-metrics-and-assurance-trismaligned.md" class="md-nav__link">
+      <a href="../../reference/10-metrics-and-assurance-trismaligned/" class="md-nav__link">
         
   
   
@@ -852,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/13-deployment-and-operational-models.md" class="md-nav__link">
+      <a href="../../reference/11-deployment-and-operational-models/" class="md-nav__link">
         
   
   
@@ -875,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/14-interoperability-and-standards.md" class="md-nav__link">
+      <a href="../../reference/12-interoperability-and-standards/" class="md-nav__link">
         
   
   
@@ -1136,20 +1090,63 @@
 
 
 <h1 id="implementation-patterns-reference-flows">Implementation patterns (reference flows)</h1>
-<ul>
-<li><strong>Trust‑aware discovery &amp; orchestration</strong>: prefer high‑trust agents; decay on violations</li>
-<li><strong>Zero‑trust time‑boxed permissions</strong>: ephemeral scopes per request/session</li>
-<li><strong>Causal chain auditing</strong>: lineage IDs across calls; reconstructable graphs</li>
-<li><strong>Threat‑informed policies</strong>: exfiltration throttles, escalation blocks, behavior gates</li>
-<li>Each pattern: context, sequence diagram pointer, policy hooks, observable evidence</li>
-</ul>
-<p>#### 13a. SAG Implementation Pattern
-  #### 13b. Policy Development Pattern
-  #### 13c. A2A Communication Pattern
-  #### 13d. Anti‑patterns (what not to do)
-  - Deploying agents without access controls ("we'll add security later")
-  - Using shared service accounts instead of agent‑specific identities
-  - Manual audit processes that do not scale or meet evidence requirements</p>
+<h4 id="basic-tool-access-flow">Basic tool access flow</h4>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant Agent
+    participant SAG as Secure Agent Gateway
+    participant PDP as Policy Decision Point
+    participant Tool
+    participant Human as Human Approver
+    participant Audit as Audit Engine
+
+    Agent-&gt;&gt;SAG: Tool request + credentials
+    SAG-&gt;&gt;SAG: Authenticate agent
+    SAG-&gt;&gt;PDP: Evaluate access policy
+    PDP--&gt;&gt;SAG: Allow/Deny/Escalate decision
+
+    alt Policy allows
+        SAG-&gt;&gt;Tool: Execute tool operation
+        Tool--&gt;&gt;SAG: Tool response
+        SAG-&gt;&gt;Audit: Log lineage metadata
+        SAG--&gt;&gt;Agent: Success response
+    else Policy requires human approval
+        SAG-&gt;&gt;Human: Request approval with context
+        Human--&gt;&gt;SAG: Approve/Deny decision
+        alt Human approves
+            SAG-&gt;&gt;Tool: Execute tool operation
+            Tool--&gt;&gt;SAG: Tool response
+            SAG--&gt;&gt;Agent: Success response
+        else Human denies
+            SAG--&gt;&gt;Agent: Human denied + reason
+        end
+    else Policy denies
+        SAG--&gt;&gt;Agent: Access denied + reason
+    end
+
+    SAG-&gt;&gt;Audit: Log access attempt + decision + lineage
+</code></pre>
+<h4 id="token-mediation-flow">Token mediation flow</h4>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant Agent
+    participant SAG as Secure Agent Gateway
+    participant TokenSvc as Token Service
+    participant ExternalMCP as External MCP Server
+
+    Agent-&gt;&gt;SAG: Request with OAuth token
+    SAG-&gt;&gt;TokenSvc: Exchange token with resource indicator
+    TokenSvc--&gt;&gt;SAG: Scoped token for target resource
+    SAG-&gt;&gt;ExternalMCP: Forward request with scoped token
+    ExternalMCP--&gt;&gt;SAG: Tool response
+    SAG--&gt;&gt;Agent: Response
+</code></pre>
+<h4 id="13a-sag-implementation-pattern">13a. SAG Implementation Pattern</h4>
+<p>Coming soon.</p>
+<h4 id="13b-policy-development-pattern">13b. Policy Development Pattern</h4>
+<p>Coming soon.</p>
+<h4 id="13c-a2a-communication-pattern">13c. A2A Communication Pattern</h4>
+<p>Coming soon.</p>
+<h4 id="13d-antipatterns-what-not-to-do">13d. Anti‑patterns (what not to do)</h4>
+<p>Coming soon.</p>
 
 
 
@@ -1170,7 +1167,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 29, 2025 10:44:22 UTC">August 29, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 29, 2025 11:50:13 UTC">August 29, 2025</span>
   </span>
 
     

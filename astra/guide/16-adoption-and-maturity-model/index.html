@@ -589,53 +589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/06-layered-architecture-model-moved.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Layered Architecture Model
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/07-security-control-points-moved.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Security Control Points
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/08-identity-trust-and-attestation.md" class="md-nav__link">
+      <a href="../../reference/06-identity-trust-and-attestation/" class="md-nav__link">
         
   
   
@@ -658,12 +612,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/09-policy-and-governance.md" class="md-nav__link">
+      <a href="../../reference/07-policy-and-governance/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Policy & Governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/08-data-lineage-and-causal-chain-auditing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Lineage & Causal Chain Auditing
     
   </span>
   
@@ -732,30 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/10-data-lineage-and-causal-chain-auditing.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Data Lineage & Causal Chain Auditing
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/11-threat-model-and-controls-threatinformed.md" class="md-nav__link">
+      <a href="../../reference/09-threat-model-and-controls-threatinformed/" class="md-nav__link">
         
   
   
@@ -778,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/12-metrics-and-assurance-trismaligned.md" class="md-nav__link">
+      <a href="../../reference/10-metrics-and-assurance-trismaligned/" class="md-nav__link">
         
   
   
@@ -852,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/13-deployment-and-operational-models.md" class="md-nav__link">
+      <a href="../../reference/11-deployment-and-operational-models/" class="md-nav__link">
         
   
   
@@ -875,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/14-interoperability-and-standards.md" class="md-nav__link">
+      <a href="../../reference/12-interoperability-and-standards/" class="md-nav__link">
         
   
   
@@ -1136,23 +1090,39 @@
 
 
 <h1 id="adoption-and-maturity-model">Adoption and maturity model</h1>
+<p>ASTRA adoption follows a maturity-based progression that organizations can adapt to their specific needs, risk tolerance, and operational constraints. Timeline expectations will vary significantly based on enterprise size, regulatory requirements, and existing security infrastructure.</p>
+<h4 id="maturity-level-1-foundational-security-26-months">Maturity level 1: Foundational security (2–6 months)</h4>
 <ul>
-<li><strong>Phased rollout</strong>: observe→enforce‑non‑blocking→enforce‑blocking→optimize</li>
-<li><strong>Readiness checklist</strong>: identity, policy, telemetry, lineage, incident response</li>
-<li><strong>Change management</strong>: policy staging, shadow evaluation, safe rollbacks</li>
+<li>Deploy Secure Agent Gateway for critical tools</li>
+<li>Implement basic policy evaluation with human escalation patterns</li>
+<li>Establish audit pipeline with immutable logging</li>
+<li>Success criteria: 1–3 critical tools secured, policy violations detected and logged</li>
+</ul>
+<h4 id="maturity-level-2-enterprise-integration-39-months">Maturity level 2: Enterprise integration (3–9 months)</h4>
+<ul>
+<li>Integrate with enterprise IAM and SSO systems</li>
+<li>Connect to SIEM systems with structured event export</li>
+<li>Deploy compliance policy packs (SOX, GDPR, HIPAA)</li>
+<li>Implement data lineage tracking across tool interactions</li>
+<li>Success criteria: Full enterprise authentication, regulatory audit readiness</li>
+</ul>
+<h4 id="maturity-level-3-advanced-governance-618-months">Maturity level 3: Advanced governance (6–18 months)</h4>
+<ul>
+<li>Add A2A governance capabilities with secure inter-agent communication</li>
+<li>Implement advanced trust management and dynamic scoring</li>
+<li>Deploy orchestration features for complex multi-agent workflows</li>
+<li>Success criteria: Multi-agent collaboration secured, workflow-level governance</li>
+</ul>
+<h4 id="dependencies">Dependencies</h4>
+<ul>
+<li>Canonical policy schema must be defined before policy development</li>
+<li>Token mediation patterns required for secure external integrations</li>
+<li>Audit schema needed for compliance and SIEM integration</li>
 </ul>
 <h4 id="16a-pilottoproduction-checklist">16a. Pilot‑to‑production checklist</h4>
-<ul>
-<li><strong>Security baseline</strong>: per‑agent identities; least‑privilege scopes; policy‑as‑code gate at control points; authenticated MCP/tool access; audit enabled</li>
-<li><strong>Compliance readiness</strong>: evidence model defined; retention and privacy controls; access reviews; segregation of duties where applicable</li>
-<li><strong>Risk assessment</strong>: threat model documented; compensating controls; incident response playbooks; rollback procedures</li>
-</ul>
+<p>Coming soon.</p>
 <h4 id="16b-foundationtoscale-path">16b. Foundation‑to‑Scale path</h4>
-<ul>
-<li><strong>Foundation Phase</strong>: first agent deployment with SAG; basic policy, audit, and lineage in place</li>
-<li><strong>Scale Phase</strong>: multiple agents; enterprise IAM/OAuth integration; decision/evidence SLAs; policy library expansion</li>
-<li><strong>Orchestration Phase</strong>: multi‑agent workflows with A2A security; trust‑aware discovery; workflow‑level policies; advanced observability</li>
-</ul>
+<p>Coming soon.</p>
 
 
 
@@ -1173,7 +1143,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 29, 2025 10:44:22 UTC">August 29, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 29, 2025 11:50:13 UTC">August 29, 2025</span>
   </span>
 
     

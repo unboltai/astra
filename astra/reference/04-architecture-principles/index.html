@@ -519,6 +519,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Architecture Principles
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -530,6 +543,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trustfirst-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trust‑first design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zerotrust-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zero‑trust security
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policydriven-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy‑driven governance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-autonomy-with-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent autonomy with governance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intent-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intent verification
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -620,53 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-layered-architecture-model-moved.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Layered Architecture Model
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../07-security-control-points-moved.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Security Control Points
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../08-identity-trust-and-attestation.md" class="md-nav__link">
+      <a href="../06-identity-trust-and-attestation/" class="md-nav__link">
         
   
   
@@ -689,12 +720,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../09-policy-and-governance.md" class="md-nav__link">
+      <a href="../07-policy-and-governance/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Policy & Governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-data-lineage-and-causal-chain-auditing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Lineage & Causal Chain Auditing
     
   </span>
   
@@ -766,30 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10-data-lineage-and-causal-chain-auditing.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Data Lineage & Causal Chain Auditing
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11-threat-model-and-controls-threatinformed.md" class="md-nav__link">
+      <a href="../09-threat-model-and-controls-threatinformed/" class="md-nav__link">
         
   
   
@@ -812,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../12-metrics-and-assurance-trismaligned.md" class="md-nav__link">
+      <a href="../10-metrics-and-assurance-trismaligned/" class="md-nav__link">
         
   
   
@@ -889,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../13-deployment-and-operational-models.md" class="md-nav__link">
+      <a href="../11-deployment-and-operational-models/" class="md-nav__link">
         
   
   
@@ -912,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../14-interoperability-and-standards.md" class="md-nav__link">
+      <a href="../12-interoperability-and-standards/" class="md-nav__link">
         
   
   
@@ -1173,15 +1204,26 @@
 
 
 <h1 id="architecture-principles">Architecture principles</h1>
+<h4 id="trustfirst-design">Trust‑first design</h4>
+<p>ASTRA fundamentally reimagines security for agentic systems by placing trust at the center of every interaction. Unlike traditional security models that rely on static permissions, ASTRA implements dynamic trust scoring that continuously evaluates agent behavior, performance, and compliance adherence. This approach recognizes that agent trustworthiness can change over time based on actions, environment, and context.</p>
+<p>The architecture supports secure trust delegation, enabling high-trust agents to temporarily share capabilities with other agents within defined boundaries. This creates a trust fabric—an interconnected network of trust relationships that forms a resilient security foundation. When one agent vouches for another's capability to perform a specific task, the system can make nuanced decisions about access while maintaining strict oversight.</p>
+<h4 id="zerotrust-security">Zero‑trust security</h4>
+<p>ASTRA adopts a comprehensive zero-trust approach specifically designed for agentic AI environments. Every interaction undergoes validation regardless of previous trust levels, network location, or historical access patterns. This continuous validation model recognizes that agents can be compromised, manipulated, or behave unexpectedly, requiring constant verification of intent and capability.</p>
+<p>The system implements context-aware policy enforcement that considers not just the agent and resource, but the full environmental context including time, location, business rules, and current risk posture. Access decisions incorporate minimal privilege principles, granting only the specific permissions required for the immediate task and for the shortest time necessary to complete the operation.</p>
+<h4 id="policydriven-governance">Policy‑driven governance</h4>
+<p>Governance in ASTRA is implemented through policy-as-code, treating security rules as software that can be version-controlled, tested, and systematically deployed. This approach enables organizations to maintain consistent security postures across complex multi-agent environments while supporting rapid iteration and deployment of policy changes.</p>
+<p>Real-time policy enforcement operates at sub-second speeds, ensuring that security decisions never become bottlenecks in agent operations. The system provides automated compliance checking against regulatory frameworks, continuously validating that agent actions remain within prescribed boundaries for SOX, GDPR, HIPAA, and other regulatory requirements.</p>
+<h4 id="agent-autonomy-with-governance">Agent autonomy with governance</h4>
+<p>ASTRA strikes a careful balance between enabling agent autonomy and maintaining organizational control. Agents operate independently within clearly defined policy boundaries, allowing them to make decisions and take actions without constant human intervention while ensuring compliance with enterprise security requirements.</p>
+<p>The architecture supports collaborative intelligence between agents, enabling them to share information, coordinate activities, and learn from each other's experiences within a secure framework. For high-risk operations or when policy boundaries are approached, the system implements policy-driven escalation patterns that seamlessly integrate human oversight through approval workflows, ensuring that critical decisions receive appropriate human review while maintaining operational efficiency.</p>
+<h4 id="intent-verification">Intent verification</h4>
 <ul>
-<li><strong>Outside‑in enforcement</strong>: secure the behavior, not only the assets</li>
-<li><strong>Zero‑Trust by default</strong>: deny‑by‑default, per‑request evaluation, contextual constraints</li>
-<li><strong>Policy‑as‑code</strong>: versioned, testable governance (e.g., Rego), explicit deny reasons</li>
-<li><strong>Trust‑aware orchestration</strong>: trust influences discovery, pairing, and workflow paths</li>
-<li><strong>Transparency &amp; observability</strong>: structured audit, OTel traces, lineage graphs</li>
-<li><strong>Interoperability &amp; vendor neutrality</strong>: standards‑first, pluggable identity and policy engines</li>
-<li><strong>Human oversight</strong>: break‑glass, approval gates, explainability</li>
+<li>Declared vs. inferred intent: Compare what the agent says it intends to do with what the request would actually do</li>
+<li>Policy‑bound intent: Validate intent against allowed operations, data classes, and risk posture</li>
+<li>Risk‑adaptive gating: Escalate to human approval when intent is ambiguous, unusually risky, or deviates from norms</li>
+<li>Consistency checks: Detect drift across sessions and tasks; flag pattern anomalies</li>
 </ul>
+<p>Intent Verification operationalizes “verify, not trust” for autonomous behavior. Before executing a tool call, ASTRA extracts the agent’s declared goal from the prompt/plan, infers likely effects from the requested operation and parameters, and compares both against policy and historical behavior. When alignment is high and risk is low, execution proceeds; otherwise, ASTRA triggers policy-driven guardrails such as additional context requirements, rate limits, or human approval.</p>
 
 
 
@@ -1202,7 +1244,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 29, 2025 10:44:22 UTC">August 29, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 29, 2025 11:50:13 UTC">August 29, 2025</span>
   </span>
 
     

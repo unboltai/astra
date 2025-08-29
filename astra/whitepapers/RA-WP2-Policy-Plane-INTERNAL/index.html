@@ -1130,43 +1130,42 @@
 </ul>
 <hr />
 <h2 id="architecture-overview">Architecture Overview</h2>
-<pre><code class="language-mermaid">flowchart LR
+<pre class="mermaid"><code>flowchart LR
   PIP[Policy Information Point&lt;br/&gt;Context Assembly] --&gt; PDP[Policy Decision Point&lt;br/&gt;Policy Evaluator (e.g., OPA) + Cache]
   PDP --&gt;|decision + reason| SAG[Secure Agent Gateway]
   POLICY_REPO[(Policy Repo&lt;br/&gt;Policy Packages (e.g., bundles)]] --&gt; PDP
   REDIS[(Redis Cache)] &lt;--&gt; PDP
-  OBS[Observability Pipeline&lt;br/&gt;(e.g., OTel) Traces/Logs] &lt;--&gt; PDP
-</code></pre>
+  OBS[Observability Pipeline&lt;br/&gt;(e.g., OTel) Traces/Logs] &lt;--&gt; PDP</code></pre>
 <p>The PDP is a long‑running policy evaluator (e.g., OPA) with decision caching layered in front to absorb repeated evaluations. The PIP assembles context from the gateway and supporting sources, normalizes it to the canonical schema, and attaches correlation identifiers for observability. Policies are distributed as signed packages (e.g., OPA bundles), enabling safe hot‑reloads and blue/green deployments. All evaluations emit structured telemetry via an observability pipeline (e.g., OpenTelemetry), avoiding raw sensitive data while preserving end‑to‑end traceability.</p>
 <hr />
 <h2 id="canonical-policy-input-schema-v1">Canonical Policy Input Schema (v1)</h2>
-<pre><code class="language-json">{
-  &quot;agent&quot;: {
-    &quot;id&quot;: &quot;string&quot;,
-    &quot;type&quot;: &quot;string&quot;,
-    &quot;trust_level&quot;: &quot;number&quot;,
-    &quot;capabilities&quot;: [&quot;string&quot;],
-    &quot;metadata&quot;: {}
-  },
-  &quot;tool&quot;: {
-    &quot;id&quot;: &quot;string&quot;,
-    &quot;name&quot;: &quot;string&quot;,
-    &quot;type&quot;: &quot;string&quot;,
-    &quot;operation&quot;: &quot;string&quot;,
-    &quot;intended_effect&quot;: &quot;string&quot;,
-    &quot;data_classification&quot;: &quot;string&quot;
-  },
-  &quot;context&quot;: {
-    &quot;timestamp&quot;: &quot;string&quot;,
-    &quot;business_hours&quot;: &quot;boolean&quot;,
-    &quot;source_ip&quot;: &quot;string&quot;,
-    &quot;session_age&quot;: &quot;number&quot;,
-    &quot;declared_intent&quot;: &quot;string&quot;,
-    &quot;inferred_intent&quot;: &quot;string&quot;,
-    &quot;intent_confidence&quot;: &quot;number&quot;
-  }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;trust_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;capabilities&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;operation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;intended_effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;data_classification&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;business_hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;source_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;session_age&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;declared_intent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;inferred_intent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;intent_confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>Validators: JSON Schema + SDK codegen (Py/TS). Clients validate before sending; the PDP re‑validates on receipt. Unknown fields are rejected to prevent silent policy bypass. Invalid or missing required fields produce a default‑deny with a clear error reason to aid debugging.</p>
 <hr />
 <h2 id="responsibilities">Responsibilities</h2>
@@ -1379,6 +1378,10 @@
     
     
       <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/js/mermaid-init.js"></script>
       
     
   </body>

@@ -1166,42 +1166,42 @@
 <p>Intent Verification operationalizes “verify, not trust” for autonomous behavior. Before executing a tool call, ASTRA extracts the agent’s declared goal from the prompt/plan, infers likely effects from the requested operation and parameters, and compares both against policy and historical behavior—grounded in intent-driven verification and assurance approaches <a href="#15">[15]</a>, <a href="#17">[17]</a> and LLM intent formalization <a href="#16">[16]</a>. When alignment is high and risk is low, execution proceeds; otherwise, ASTRA triggers policy-driven guardrails such as additional context requirements, rate limits, or human approval.</p>
 <hr />
 <h2 id="astra-reference-architecture">ASTRA Reference Architecture</h2>
-<pre><code class="language-mermaid">graph TB
-    subgraph &quot;ASTRA Agent Security Control Plane&quot;
-        subgraph &quot;Secure Agent Gateway (SAG)&quot;
+<pre class="mermaid"><code>graph TB
+    subgraph "ASTRA Agent Security Control Plane"
+        subgraph "Secure Agent Gateway (SAG)"
             SAG_AUTH[Authentication Layer&lt;br/&gt;OAuth 2.1, mTLS, JWT]
             SAG_POLICY[Policy Enforcement Point&lt;br/&gt;Real-time Policy Evaluation]
             SAG_ROUTE[Request Router&lt;br/&gt;Local vs Remote Tools]
             SAG_AUDIT[Audit Integration&lt;br/&gt;Decision Logging]
         end
 
-        subgraph &quot;Policy Plane&quot;
+        subgraph "Policy Plane"
             PDP[Policy Decision Point&lt;br/&gt;OPA Server + Cache]
             PIP[Policy Information Point&lt;br/&gt;Context Assembly]
             POLICY_REPO[Policy Repository&lt;br/&gt;Versioned Rego Policies]
         end
 
-        subgraph &quot;Audit &amp; Lineage Plane&quot;
+        subgraph "Audit &amp; Lineage Plane"
             AUDIT_ENGINE[Audit Engine&lt;br/&gt;Immutable Event Store]
             LINEAGE_TRACKER[Data Lineage Tracker&lt;br/&gt;Provenance Chain]
             SIEM_EXPORT[SIEM Export&lt;br/&gt;Structured Events]
             HUMAN_APPROVAL[Human Approval&lt;br/&gt;High-Risk Escalation]
         end
 
-        subgraph &quot;Identity &amp; Secrets&quot;
+        subgraph "Identity &amp; Secrets"
             AGENT_IDP[Agent Identity Provider&lt;br/&gt;Credential Management]
             SECRET_MGMT[Secret Management&lt;br/&gt;KMS/Vault Integration]
             TOKEN_SVC[Token Service&lt;br/&gt;Short-lived Credentials]
         end
 
-        subgraph &quot;A2A Governance (Future)&quot;
+        subgraph "A2A Governance (Future)"
             A2A_REGISTRY[Agent Registry&lt;br/&gt;Capability Discovery]
             A2A_COMM[Communication Bus&lt;br/&gt;Secure Messaging]
             A2A_ORCHESTRATION[Orchestration Engine&lt;br/&gt;Workflow Management]
         end
     end
 
-    subgraph &quot;External Systems&quot;
+    subgraph "External Systems"
         AGENTS[AI Agents&lt;br/&gt;Various Frameworks]
         TOOLS[Enterprise Tools&lt;br/&gt;APIs, Databases, SaaS]
         ENTERPRISE_IAM[Enterprise IAM&lt;br/&gt;SSO, RBAC]
@@ -1234,8 +1234,7 @@
     classDef future fill:#f5f5f5,stroke-dasharray: 5 5
 
     class SAG_AUTH,SAG_POLICY,SAG_ROUTE,SAG_AUDIT,PDP,PIP,POLICY_REPO,AUDIT_ENGINE,LINEAGE_TRACKER,SIEM_EXPORT,HUMAN_APPROVAL,AGENT_IDP,SECRET_MGMT,TOKEN_SVC current
-    class A2A_REGISTRY,A2A_COMM,A2A_ORCHESTRATION future
-</code></pre>
+    class A2A_REGISTRY,A2A_COMM,A2A_ORCHESTRATION future</code></pre>
 <hr />
 <h2 id="core-architectural-pillars">Core Architectural Pillars</h2>
 <h3 id="1-secure-agent-gateway-sag">1. Secure Agent Gateway (SAG)</h3>
@@ -1258,34 +1257,34 @@
 <p>The policy evaluation engine operates through rich context assembly, gathering comprehensive information about the requesting agent, target tool, environmental conditions, and historical patterns to make informed security decisions. This context-aware approach enables policies that can differentiate between a routine data query during business hours and an unusual access attempt outside normal parameters, providing the nuanced decision-making that modern agentic environments require.</p>
 <p>Performance optimization through intelligent decision caching ensures that policy evaluation never becomes a bottleneck in agent operations. The system maintains a sophisticated cache of recent policy decisions while ensuring that cached results remain valid in the face of changing conditions, policy updates, or evolving threat landscapes.</p>
 <p>Policy management follows software engineering best practices, treating security policies as versioned, testable code. This approach enables organizations to apply standard development lifecycle practices to their security logic, including code review processes, automated testing, staged deployments, and rollback capabilities when policy changes produce unexpected results.</p>
-<p><strong>Canonical Policy Input Schema:</strong></p>
-<pre><code class="language-json">{
-  &quot;agent&quot;: {
-    &quot;id&quot;: &quot;string&quot;,
-    &quot;type&quot;: &quot;string&quot;, 
-    &quot;trust_level&quot;: &quot;float&quot;,
-    &quot;capabilities&quot;: [&quot;string&quot;],
-    &quot;metadata&quot;: {}
-  },
-  &quot;tool&quot;: {
-    &quot;id&quot;: &quot;string&quot;,
-    &quot;name&quot;: &quot;string&quot;,
-    &quot;type&quot;: &quot;string&quot;,
-    &quot;operation&quot;: &quot;string&quot;,
-    &quot;intended_effect&quot;: &quot;string&quot;,
-    &quot;data_classification&quot;: &quot;string&quot;
-  },
-  &quot;context&quot;: {
-    &quot;timestamp&quot;: &quot;string&quot;,
-    &quot;business_hours&quot;: &quot;boolean&quot;,
-    &quot;source_ip&quot;: &quot;string&quot;,
-    &quot;session_age&quot;: &quot;number&quot;,
-    &quot;declared_intent&quot;: &quot;string&quot;,
-    &quot;inferred_intent&quot;: &quot;string&quot;,
-    &quot;intent_confidence&quot;: &quot;number&quot;
-  }
-}
-</code></pre>
+<p><strong>Canonical Policy Input Schema:</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;trust_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;float&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;capabilities&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;operation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;intended_effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;data_classification&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;business_hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;source_ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;session_age&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;declared_intent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;inferred_intent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;intent_confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <p><strong>Policy Packs Available:</strong>
 - <strong>SOX Compliance Pack</strong>: Financial reporting and internal controls
 - <strong>GDPR Compliance Pack</strong>: Data privacy and protection requirements
@@ -1310,27 +1309,27 @@
 - <strong>Transformation Logging</strong>: Detailed records of agent operations, tools used, and data modifications
 - <strong>Cross-Agent Correlation</strong>: Tracking data flow between agents using session identifiers and correlation tokens
 - <strong>Temporal Provenance</strong>: Time-ordered chains showing complete data journey from source to destination</p>
-<p><strong>Audit Event Schema:</strong></p>
-<pre><code class="language-json">{
-  &quot;timestamp&quot;: &quot;2025-08-28T14:30:00Z&quot;,
-  &quot;event_type&quot;: &quot;tool_access&quot;,
-  &quot;agent_id&quot;: &quot;financial_analyst_001&quot;,
-  &quot;tool_name&quot;: &quot;database_query&quot;,
-  &quot;policy_decision&quot;: true,
-  &quot;policy_reason&quot;: &quot;Agent authorized for read access during business hours&quot;,
-  &quot;data_fingerprint&quot;: &quot;sha256:abc123...&quot;,
-  &quot;lineage_metadata&quot;: {
-    &quot;input_fingerprints&quot;: [&quot;sha256:def456...&quot;],
-    &quot;transformation_type&quot;: &quot;aggregation&quot;,
-    &quot;correlation_id&quot;: &quot;session_789&quot;,
-    &quot;declared_intent&quot;: &quot;summarize quarterly revenue&quot;,
-    &quot;inferred_intent&quot;: &quot;aggregate financial metrics&quot;,
-    &quot;intent_confidence&quot;: 0.92
-  },
-  &quot;human_approval_required&quot;: false,
-  &quot;audit_level&quot;: &quot;standard&quot;
-}
-</code></pre>
+<p><strong>Audit Event Schema:</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-08-28T14:30:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;event_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tool_access&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;agent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;financial_analyst_001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tool_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;database_query&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;policy_decision&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;policy_reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Agent authorized for read access during business hours&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data_fingerprint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sha256:abc123...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;lineage_metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;input_fingerprints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sha256:def456...&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;transformation_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aggregation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;correlation_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session_789&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;declared_intent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;summarize quarterly revenue&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;inferred_intent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aggregate financial metrics&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;intent_confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;human_approval_required&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;audit_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;standard&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h3 id="4-identity-secrets-management">4. Identity &amp; Secrets Management</h3>
 <p>Manages agent identities and credentials with enterprise integration.</p>
 <p><strong>Key Responsibilities:</strong>
@@ -1365,7 +1364,7 @@
 <hr />
 <h2 id="reference-data-flows">Reference Data Flows</h2>
 <h3 id="basic-tool-access-flow">Basic Tool Access Flow</h3>
-<pre><code class="language-mermaid">sequenceDiagram
+<pre class="mermaid"><code>sequenceDiagram
     participant Agent
     participant SAG as Secure Agent Gateway
     participant PDP as Policy Decision Point
@@ -1397,10 +1396,9 @@
         SAG--&gt;&gt;Agent: Access denied + reason
     end
 
-    SAG-&gt;&gt;Audit: Log access attempt + decision + lineage
-</code></pre>
+    SAG-&gt;&gt;Audit: Log access attempt + decision + lineage</code></pre>
 <h3 id="token-mediation-flow">Token Mediation Flow</h3>
-<pre><code class="language-mermaid">sequenceDiagram
+<pre class="mermaid"><code>sequenceDiagram
     participant Agent
     participant SAG as Secure Agent Gateway
     participant TokenSvc as Token Service
@@ -1411,8 +1409,7 @@
     TokenSvc--&gt;&gt;SAG: Scoped token for target resource
     SAG-&gt;&gt;ExternalMCP: Forward request with scoped token
     ExternalMCP--&gt;&gt;SAG: Tool response
-    SAG--&gt;&gt;Agent: Response
-</code></pre>
+    SAG--&gt;&gt;Agent: Response</code></pre>
 <hr />
 <h2 id="security-and-privacy-principles">Security and Privacy Principles</h2>
 <h3 id="zero-trust-implementation">Zero-Trust Implementation</h3>
@@ -1654,6 +1651,10 @@ ASTRA is developed by Unbolt as a vendor-neutral reference architecture for the 
     
     
       <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/js/mermaid-init.js"></script>
       
     
   </body>

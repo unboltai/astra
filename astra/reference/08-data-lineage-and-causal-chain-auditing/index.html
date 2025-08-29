@@ -1203,26 +1203,26 @@
 <li>Temporal provenance: Time-ordered chains showing complete data journey from source to destination</li>
 </ul>
 <h4 id="audit-event-schema">Audit event schema</h4>
-<pre><code class="language-json">{
-  &quot;timestamp&quot;: &quot;2025-08-28T14:30:00Z&quot;,
-  &quot;event_type&quot;: &quot;tool_access&quot;,
-  &quot;agent_id&quot;: &quot;financial_analyst_001&quot;,
-  &quot;tool_name&quot;: &quot;database_query&quot;,
-  &quot;policy_decision&quot;: true,
-  &quot;policy_reason&quot;: &quot;Agent authorized for read access during business hours&quot;,
-  &quot;data_fingerprint&quot;: &quot;sha256:abc123...&quot;,
-  &quot;lineage_metadata&quot;: {
-    &quot;input_fingerprints&quot;: [&quot;sha256:def456...&quot;],
-    &quot;transformation_type&quot;: &quot;aggregation&quot;,
-    &quot;correlation_id&quot;: &quot;session_789&quot;,
-    &quot;declared_intent&quot;: &quot;summarize quarterly revenue&quot;,
-    &quot;inferred_intent&quot;: &quot;aggregate financial metrics&quot;,
-    &quot;intent_confidence&quot;: 0.92
-  },
-  &quot;human_approval_required&quot;: false,
-  &quot;audit_level&quot;: &quot;standard&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-08-28T14:30:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;event_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tool_access&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;agent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;financial_analyst_001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tool_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;database_query&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;policy_decision&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;policy_reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Agent authorized for read access during business hours&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data_fingerprint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sha256:abc123...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;lineage_metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;input_fingerprints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sha256:def456...&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;transformation_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aggregation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;correlation_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session_789&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;declared_intent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;summarize quarterly revenue&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;inferred_intent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aggregate financial metrics&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;intent_confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;human_approval_required&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;audit_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;standard&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 
@@ -1296,6 +1296,10 @@
     
     
       <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/js/mermaid-init.js"></script>
       
     
   </body>

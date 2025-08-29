@@ -25,3 +25,27 @@
   font-weight: 400 !important;
   margin-left: 1.5em !important;
 }
+
+/* Mermaid diagram sizing */
+.mermaid {
+  /* Allow diagrams to expand wider and scale text for readability */
+  max-width: 100% !important;
+  overflow-x: auto;
+}
+
+/* Increase font-size and node sizes inside Mermaid SVGs */
+.mermaid svg {
+  width: 100% !important;
+}
+
+.mermaid svg * {
+  font-size: 16px !important; /* default ~12px; bump for readability */
+}
+
+/* Optional: larger diagrams on wide screens */
+@media (min-width: 1200px) {
+  .md-content .mermaid {
+    transform: scale(1.1);
+    transform-origin: top left;
+  }
+}

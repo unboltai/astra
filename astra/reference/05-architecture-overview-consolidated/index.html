@@ -1229,42 +1229,42 @@
 
 <h1 id="architecture-overview-consolidated">Architecture overview (consolidated)</h1>
 <h4 id="astra-reference-architecture">ASTRA reference architecture</h4>
-<pre><code class="language-mermaid">graph TB
-    subgraph &quot;ASTRA Agent Security Control Plane&quot;
-        subgraph &quot;Secure Agent Gateway (SAG)&quot;
+<pre class="mermaid"><code>graph TB
+    subgraph "ASTRA Agent Security Control Plane"
+        subgraph "Secure Agent Gateway (SAG)"
             SAG_AUTH[Authentication Layer&lt;br/&gt;OAuth 2.1, mTLS, JWT]
             SAG_POLICY[Policy Enforcement Point&lt;br/&gt;Real-time Policy Evaluation]
             SAG_ROUTE[Request Router&lt;br/&gt;Local vs Remote Tools]
             SAG_AUDIT[Audit Integration&lt;br/&gt;Decision Logging]
         end
 
-        subgraph &quot;Policy Plane&quot;
+        subgraph "Policy Plane"
             PDP[Policy Decision Point&lt;br/&gt;OPA Server + Cache]
             PIP[Policy Information Point&lt;br/&gt;Context Assembly]
             POLICY_REPO[Policy Repository&lt;br/&gt;Versioned Rego Policies]
         end
 
-        subgraph &quot;Audit &amp; Lineage Plane&quot;
+        subgraph "Audit &amp; Lineage Plane"
             AUDIT_ENGINE[Audit Engine&lt;br/&gt;Immutable Event Store]
             LINEAGE_TRACKER[Data Lineage Tracker&lt;br/&gt;Provenance Chain]
             SIEM_EXPORT[SIEM Export&lt;br/&gt;Structured Events]
             HUMAN_APPROVAL[Human Approval&lt;br/&gt;High-Risk Escalation]
         end
 
-        subgraph &quot;Identity &amp; Secrets&quot;
+        subgraph "Identity &amp; Secrets"
             AGENT_IDP[Agent Identity Provider&lt;br/&gt;Credential Management]
             SECRET_MGMT[Secret Management&lt;br/&gt;KMS/Vault Integration]
             TOKEN_SVC[Token Service&lt;br/&gt;Short-lived Credentials]
         end
 
-        subgraph &quot;A2A Governance (Future)&quot;
+        subgraph "A2A Governance (Future)"
             A2A_REGISTRY[Agent Registry&lt;br/&gt;Capability Discovery]
             A2A_COMM[Communication Bus&lt;br/&gt;Secure Messaging]
             A2A_ORCHESTRATION[Orchestration Engine&lt;br/&gt;Workflow Management]
         end
     end
 
-    subgraph &quot;External Systems&quot;
+    subgraph "External Systems"
         AGENTS[AI Agents&lt;br/&gt;Various Frameworks]
         TOOLS[Enterprise Tools&lt;br/&gt;APIs, Databases, SaaS]
         ENTERPRISE_IAM[Enterprise IAM&lt;br/&gt;SSO, RBAC]
@@ -1297,8 +1297,7 @@
     classDef future fill:#f5f5f5,stroke-dasharray: 5 5
 
     class SAG_AUTH,SAG_POLICY,SAG_ROUTE,SAG_AUDIT,PDP,PIP,POLICY_REPO,AUDIT_ENGINE,LINEAGE_TRACKER,SIEM_EXPORT,HUMAN_APPROVAL,AGENT_IDP,SECRET_MGMT,TOKEN_SVC current
-    class A2A_REGISTRY,A2A_COMM,A2A_ORCHESTRATION future
-</code></pre>
+    class A2A_REGISTRY,A2A_COMM,A2A_ORCHESTRATION future</code></pre>
 <h4 id="core-architectural-pillars">Core architectural pillars</h4>
 <h5 id="secure-agent-gateway-sag">Secure Agent Gateway (SAG)</h5>
 <ul>
@@ -1399,6 +1398,10 @@
     
     
       <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/js/mermaid-init.js"></script>
       
     
   </body>

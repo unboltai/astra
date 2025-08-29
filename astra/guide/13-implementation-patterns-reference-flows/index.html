@@ -1091,7 +1091,7 @@
 
 <h1 id="implementation-patterns-reference-flows">Implementation patterns (reference flows)</h1>
 <h4 id="basic-tool-access-flow">Basic tool access flow</h4>
-<pre><code class="language-mermaid">sequenceDiagram
+<pre class="mermaid"><code>sequenceDiagram
     participant Agent
     participant SAG as Secure Agent Gateway
     participant PDP as Policy Decision Point
@@ -1123,10 +1123,9 @@
         SAG--&gt;&gt;Agent: Access denied + reason
     end
 
-    SAG-&gt;&gt;Audit: Log access attempt + decision + lineage
-</code></pre>
+    SAG-&gt;&gt;Audit: Log access attempt + decision + lineage</code></pre>
 <h4 id="token-mediation-flow">Token mediation flow</h4>
-<pre><code class="language-mermaid">sequenceDiagram
+<pre class="mermaid"><code>sequenceDiagram
     participant Agent
     participant SAG as Secure Agent Gateway
     participant TokenSvc as Token Service
@@ -1137,8 +1136,7 @@
     TokenSvc--&gt;&gt;SAG: Scoped token for target resource
     SAG-&gt;&gt;ExternalMCP: Forward request with scoped token
     ExternalMCP--&gt;&gt;SAG: Tool response
-    SAG--&gt;&gt;Agent: Response
-</code></pre>
+    SAG--&gt;&gt;Agent: Response</code></pre>
 <h4 id="13a-sag-implementation-pattern">13a. SAG Implementation Pattern</h4>
 <p>Coming soon.</p>
 <h4 id="13b-policy-development-pattern">13b. Policy Development Pattern</h4>
@@ -1220,6 +1218,10 @@
     
     
       <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/js/mermaid-init.js"></script>
       
     
   </body>

@@ -1,1 +1,27 @@
 .md-header__button.md-logo img { height: 28px; }
+
+/* Navigation group styling - make group names darker and more prominent */
+.md-nav__title {
+  color: #1a1a1a !important;
+  font-weight: 600 !important;
+  font-size: 1.1em !important;
+}
+
+/* Ensure section names remain lighter and properly indented */
+.md-nav__list {
+  color: #666 !important;
+  font-weight: 400 !important;
+  margin-left: 1.5em !important;
+}
+
+/* Dark theme adjustments */
+[data-md-color-scheme="slate"] .md-nav__title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__list {
+  color: #b0b0b0 !important;
+  font-weight: 400 !important;
+  margin-left: 1.5em !important;
+}

@@ -17,55 +17,31 @@
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/guide/15-implementation-patterns-reference-flows/</loc>
+         <loc>https://astra.unbolt.ai/astra/guide/13-implementation-patterns-reference-flows/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/guide/15-implementation-patterns/</loc>
+         <loc>https://astra.unbolt.ai/astra/guide/14-validation-and-benchmarking-methodology/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/guide/15d-anti-patterns/</loc>
+         <loc>https://astra.unbolt.ai/astra/guide/15-controls-catalog-companion/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/guide/16-validation-and-benchmarking-methodology/</loc>
+         <loc>https://astra.unbolt.ai/astra/guide/16-adoption-and-maturity-model/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/guide/16-validation/</loc>
+         <loc>https://astra.unbolt.ai/astra/guide/17-governance-risk-and-compliance-mapping/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/guide/17-controls-catalog-companion/</loc>
+         <loc>https://astra.unbolt.ai/astra/guide/18-case-studies-and-scenarios-vendorneutral/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/guide/17-controls-catalog/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://astra.unbolt.ai/astra/guide/18-adoption-and-maturity-model/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://astra.unbolt.ai/astra/guide/18a-pilot-to-production/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://astra.unbolt.ai/astra/guide/18b-foundation-to-scale/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://astra.unbolt.ai/astra/guide/19-governance-risk-and-compliance-mapping/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://astra.unbolt.ai/astra/guide/20-case-studies-and-scenarios-vendorneutral/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://astra.unbolt.ai/astra/guide/21-appendices/</loc>
+         <loc>https://astra.unbolt.ai/astra/guide/19-appendices/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
@@ -89,39 +65,31 @@
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/reference/06-layered-architecture-model-moved/</loc>
+         <loc>https://astra.unbolt.ai/astra/reference/06-identity-trust-and-attestation/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/reference/07-security-control-points-moved/</loc>
+         <loc>https://astra.unbolt.ai/astra/reference/07-policy-and-governance/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/reference/08-identity-trust-and-attestation/</loc>
+         <loc>https://astra.unbolt.ai/astra/reference/08-data-lineage-and-causal-chain-auditing/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/reference/09-policy-and-governance/</loc>
+         <loc>https://astra.unbolt.ai/astra/reference/09-threat-model-and-controls-threatinformed/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/reference/10-data-lineage-and-causal-chain-auditing/</loc>
+         <loc>https://astra.unbolt.ai/astra/reference/10-metrics-and-assurance-trismaligned/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/reference/11-threat-model-and-controls-threatinformed/</loc>
+         <loc>https://astra.unbolt.ai/astra/reference/11-deployment-and-operational-models/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>
-         <loc>https://astra.unbolt.ai/astra/reference/12-metrics-and-assurance-trismaligned/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://astra.unbolt.ai/astra/reference/13-deployment-and-operational-models/</loc>
-         <lastmod>2025-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://astra.unbolt.ai/astra/reference/14-interoperability-and-standards/</loc>
+         <loc>https://astra.unbolt.ai/astra/reference/12-interoperability-and-standards/</loc>
          <lastmod>2025-08-29</lastmod>
     </url>
     <url>

@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://astra.unbolt.ai/astra/guide/13-implementation-patterns-reference-flows/">
       
       
+        <link rel="prev" href="../../reference/12-interoperability-and-standards/">
+      
+      
+        <link rel="next" href="../14-validation-and-benchmarking-methodology/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -18,7 +22,7 @@
     
     
       
-        <title>Implementation patterns (reference flows) - Agentic Security and Trust Reference Architecture - ASTRA</title>
+        <title>13. Implementation patterns - Agentic Security and Trust Reference Architecture - ASTRA</title>
       
     
     
@@ -95,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Implementation patterns (reference flows)
+              13. Implementation patterns
             
           </span>
         </div>
@@ -227,11 +231,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../15-implementation-patterns.md" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -864,26 +870,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -896,7 +907,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Implementation Guide
@@ -907,15 +918,134 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../15-implementation-patterns.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    13. Implementation patterns
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    15. Implementation patterns
+    13. Implementation patterns
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-tool-access-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic tool access flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-mediation-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token mediation flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13a-sag-implementation-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      13a. SAG Implementation Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13b-policy-development-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      13b. Policy Development Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13c-a2a-communication-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      13c. A2A Communication Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13d-antipatterns-what-not-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      13d. Anti‑patterns (what not to do)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-validation-and-benchmarking-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Validation & benchmarking
     
   </span>
   
@@ -933,12 +1063,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../15d-anti-patterns.md" class="md-nav__link">
+      <a href="../15-controls-catalog-companion/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    15d. Anti-patterns
+    15. Controls catalog
     
   </span>
   
@@ -956,12 +1086,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../16-validation.md" class="md-nav__link">
+      <a href="../16-adoption-and-maturity-model/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    16. Validation & benchmarks
+    16. Adoption & maturity model
     
   </span>
   
@@ -979,12 +1109,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../17-controls-catalog.md" class="md-nav__link">
+      <a href="../17-governance-risk-and-compliance-mapping/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    17. Controls catalog
+    17. GRC mapping
     
   </span>
   
@@ -1002,35 +1132,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../18a-pilot-to-production.md" class="md-nav__link">
+      <a href="../18-case-studies-and-scenarios-vendorneutral/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    18a. Pilot-to-production
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../18b-foundation-to-scale.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    18b. Foundation-to-Scale path
+    18. Case studies
     
   </span>
   
